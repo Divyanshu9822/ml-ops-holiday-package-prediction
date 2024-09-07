@@ -1,14 +1,13 @@
 from src.logger import logger
+from src.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 
-logger.info("Hello, World!")
 
-def some_function():
-    try:
-        logger.info("This is an info log from some_function")
-    except Exception as e:
-        logger.error(f"An error occurred: {e}")
-
-if __name__ == "__main__":
-    logger.info("Starting the script")
-    some_function()
-    logger.info("Ending the script")
+STAGE_NAME = "Data Ingestion stage"
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    data_ingestion = DataIngestionTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
