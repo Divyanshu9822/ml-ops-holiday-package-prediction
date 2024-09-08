@@ -3,18 +3,19 @@ from src.utils.common import read_yaml, create_directories
 from src.entity.config_entity import DataIngestionConfig
 from src.entity.config_entity import DataValidationConfig
 from src.entity.config_entity import DataTransformationConfig
+from src.entity.config_entity import ModelTrainerConfig
 
 
 class ConfigurationManager:
     def __init__(
         self,
         config_filepath=CONFIG_FILE_PATH,
-        params_filepath=PARAMS_FILE_PATH,
+        model_config_filepath=MODEL_CONFIG_FILE_PATH,
         schema_filepath=SCHEMA_FILE_PATH,
     ):
 
         self.config = read_yaml(config_filepath)
-        self.params = read_yaml(params_filepath)
+        self.model_config = read_yaml(model_config_filepath)
         self.schema = read_yaml(schema_filepath)
 
         create_directories([self.config.artifacts_root])
@@ -54,4 +55,23 @@ class ConfigurationManager:
             root_dir=config.root_dir,
             processed_data_path=config.processed_data_path,
             preprocessor_model_name=config.preprocessor_model_name,
+        )
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        model_name = self.model_config.model
+        params = self.model_config.params
+        schema = self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        return ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            trained_model_name=config.trained_model_name,
+            preprocessor_model_path=config.preprocessor_model_path,
+            model_name=model_name,
+            model_params=params,
+            target_column=schema.name,
         )

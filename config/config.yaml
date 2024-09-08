@@ -16,3 +16,10 @@ data_transformation:
   root_dir: artifacts/data_transformation
   processed_data_path: artifacts/data_validation/travel_processed.csv
   preprocessor_model_name : preprocessor.joblib
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_data_path: artifacts/data_transformation/train.csv
+  test_data_path: artifacts/data_transformation/test.csv
+  trained_model_name: model.joblib
+  preprocessor_model_path: artifacts/data_transformation/preprocessor.joblib
