@@ -1,0 +1,26 @@
+# Best hyperparameters for the model being used in production
+# This section contains the optimal parameters for the model currently deployed in production.
+model: Xgboost
+params:
+  n_estimators: 300
+  max_depth: 12
+  learning_rate: 0.1
+  colsample_bytree: 0.5
+
+# model: Random Forest
+# params:
+#   n_estimators: 500
+#   min_samples_split: 2
+#   max_features: 7
+
+# List of models supported by the pipeline
+# These are the models that the pipeline can handle and potentially be used for training or predictions.
+supported_models:
+  - Logistic Regression
+  - Decision Tree
+  - Random Forest
+  - Gradient Boost
+  - Adaboost
+  - Xgboost
+  - SVC
+  - Gaussian Naive Bayes
