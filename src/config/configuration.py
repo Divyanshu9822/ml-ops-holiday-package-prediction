@@ -1,6 +1,7 @@
 from src.constants import *
 from src.utils.common import read_yaml, create_directories
 from src.entity.config_entity import DataIngestionConfig
+from src.entity.config_entity import DataPreprocessingConfig
 
 
 class ConfigurationManager:
@@ -30,3 +31,13 @@ class ConfigurationManager:
         )
 
         return data_ingestion_config
+
+    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
+        config = self.config.data_preprocessing
+        create_directories([config.root_dir])
+
+        return DataPreprocessingConfig(
+            root_dir=config.root_dir,
+            raw_data_path=config.raw_data_path,
+            processed_data_path=config.processed_data_path,
+        )
