@@ -4,6 +4,7 @@ from src.entity.config_entity import DataIngestionConfig
 from src.entity.config_entity import DataValidationConfig
 from src.entity.config_entity import DataTransformationConfig
 from src.entity.config_entity import ModelTrainerConfig
+from src.entity.config_entity import ModelEvaluationConfig
 
 
 class ConfigurationManager:
@@ -74,4 +75,24 @@ class ConfigurationManager:
             model_name=model_name,
             model_params=params,
             target_column=schema.name,
+        )
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        model_name = self.model_config.model
+        params = self.model_config.params
+        schema = self.schema.TARGET_COLUMN
+
+        create_directories([config.root_dir])
+
+        return ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
+            preprocessor_model_path=config.preprocessor_model_path,
+            model_path=config.model_path,
+            model_name=model_name,
+            model_params=params,
+            metric_file_name=config.metric_file_name,
+            target_column=schema.name,
+            mlflow_uri="https://dagshub.com/Divyanshu9822/ml-ops-holiday-package-prediction.mlflow",
         )
