@@ -11,3 +11,8 @@ data_validation:
   raw_data_path: artifacts/data_ingestion/travel.csv
   processed_data_path: artifacts/data_validation/travel_processed.csv
   STATUS_FILE: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  processed_data_path: artifacts/data_validation/travel_processed.csv
+  preprocessor_model_name : preprocessor.joblib

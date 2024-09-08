@@ -9,6 +9,7 @@ class DataIngestionConfig:
     local_data_file: Path
     unzip_dir: Path
 
+
 @dataclass(frozen=True)
 class DataValidationConfig:
     root_dir: Path
@@ -16,3 +17,10 @@ class DataValidationConfig:
     processed_data_path: Path
     all_schema: dict
     STATUS_FILE: Path
+
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    processed_data_path: Path
+    preprocessor_model_name: str
