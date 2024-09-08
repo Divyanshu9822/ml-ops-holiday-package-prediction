@@ -1,2 +1,22 @@
-key1: value1
-key2: value2
+COLUMNS:
+  ProdTaken: int64
+  Age: float64
+  TypeofContact: object
+  CityTier: int64
+  DurationOfPitch: float64
+  Occupation: object
+  Gender: object
+  NumberOfFollowups: float64
+  ProductPitched: object
+  PreferredPropertyStar: float64
+  MaritalStatus: object
+  NumberOfTrips: float64
+  Passport: int64
+  PitchSatisfactionScore: int64
+  OwnCar: int64
+  Designation: object
+  MonthlyIncome: float64
+  TotalVisiting: float64
+
+TARGET_COLUMN:
+  name: ProdTaken

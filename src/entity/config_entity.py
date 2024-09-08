@@ -10,7 +10,9 @@ class DataIngestionConfig:
     unzip_dir: Path
 
 @dataclass(frozen=True)
-class DataPreprocessingConfig:
+class DataValidationConfig:
     root_dir: Path
     raw_data_path: Path
     processed_data_path: Path
+    all_schema: dict
+    STATUS_FILE: Path

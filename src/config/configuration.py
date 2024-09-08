@@ -1,7 +1,7 @@
 from src.constants import *
 from src.utils.common import read_yaml, create_directories
 from src.entity.config_entity import DataIngestionConfig
-from src.entity.config_entity import DataPreprocessingConfig
+from src.entity.config_entity import DataValidationConfig
 
 
 class ConfigurationManager:
@@ -32,12 +32,15 @@ class ConfigurationManager:
 
         return data_ingestion_config
 
-    def get_data_preprocessing_config(self) -> DataPreprocessingConfig:
-        config = self.config.data_preprocessing
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema.COLUMNS
         create_directories([config.root_dir])
 
-        return DataPreprocessingConfig(
+        return DataValidationConfig(
             root_dir=config.root_dir,
             raw_data_path=config.raw_data_path,
             processed_data_path=config.processed_data_path,
+            all_schema=schema,
+            STATUS_FILE=config.STATUS_FILE,
         )
