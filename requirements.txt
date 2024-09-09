@@ -16,4 +16,5 @@ Flask
 Flask-Cors
 dagshub
 streamlit
+requests
 -e .
