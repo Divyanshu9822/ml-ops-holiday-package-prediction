@@ -3,4 +3,5 @@ WORKDIR /app
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
+ENV API_URL=http://flask-api:8000/predict
 CMD ["streamlit", "run", "app.py"]

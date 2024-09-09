@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile-flask
     ports:
       - "8000:8000"
+    env_file: 
+      - .env 
 
   streamlit-app:
     build:
@@ -15,3 +17,5 @@ services:
       - "8501:8501"
     depends_on:
       - flask-api
+    environment:
+      - API_URL=http://flask-api:8000/predict
