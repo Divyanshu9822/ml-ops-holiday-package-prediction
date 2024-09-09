@@ -1,0 +1,96 @@
+artifacts/
+notebooks/
+data/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyd
+
+# Cython debug symbols
+cython_debug/
+
+# Environment files
+.env
+venv/
+ENV/
+env/
+*.env
+
+# Git
+.git/
+.gitignore
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Docker specific
+Dockerfile*
+docker-compose*
+*.tar
+*.gz
+
+# Other files to ignore
+*.DS_Store
+*.coverage
+*.coverage.*
+*.pytest_cache/
+*.tox/
+*.nox/
+*.mypy_cache/
+*.pylint.d/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/
+*.tox/
+*.nox/
+*.coverage
+*.coverage.*
+*.hypothesis/

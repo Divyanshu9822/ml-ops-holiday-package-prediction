@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  flask-api:
+    build:
+      context: .
+      dockerfile: Dockerfile-flask
+    ports:
+      - "8000:8000"
+
+  streamlit-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-streamlit
+    ports:
+      - "8501:8501"
+    depends_on:
+      - flask-api
