@@ -91,15 +91,11 @@ def predict():
 
         prediction = pipeline.predict(input_data)
 
-        print(prediction)
-
         prediction_message = (
             "The customer is likely to purchase the travel package."
             if prediction == 1
             else "The customer is unlikely to purchase the travel package."
         )
-
-        print(prediction_message)
 
         response = {"prediction": int(prediction), "prediction_message": prediction_message}
 
