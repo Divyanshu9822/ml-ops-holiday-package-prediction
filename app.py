@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://127.0.0.1:8000/predict"
+API_URL = os.getenv("API_URL", "http://localhost:8000/predict")
 
 st.title("Holiday Package Prediction")
 
@@ -68,9 +69,9 @@ if st.button("Predict"):
         if response.status_code == 200:
             prediction = response_data.get("prediction", None)
             if prediction == 1:
-                st.success(response_data['prediction_message'])
+                st.success(response_data["prediction_message"])
             elif prediction == 0:
-                st.error(response_data['prediction_message'])
+                st.error(response_data["prediction_message"])
             else:
                 st.warning("Uh oh! Something went wrong.")
         else:
