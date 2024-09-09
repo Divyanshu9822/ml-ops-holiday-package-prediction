@@ -15,7 +15,6 @@ import xgboost
 from src.entity.config_entity import ModelEvaluationConfig
 from src.constants import *
 from src.utils.common import save_json
-import dagshub
 
 
 class ModelEvaluation:
@@ -31,11 +30,6 @@ class ModelEvaluation:
         return accuracy, f1, precision, recall, roc_auc
 
     def log_into_mlflow(self):
-        dagshub.init(
-            repo_owner="divyanshu9822",
-            repo_name="ml-ops-holiday-package-prediction",
-            mlflow=True,
-        )
         test_data = pd.read_csv(self.config.test_data_path)
         model = joblib.load(self.config.model_path)
 
